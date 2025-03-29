@@ -1,5 +1,4 @@
 const { Client, Collection } = require("discord.js");
-const { Player } = require("discord-player"); // Importar el reproductor
 require("dotenv").config();
 
 const client = new Client({ intents: 53608447 });
@@ -8,18 +7,7 @@ const { loadEvents } = require("./handlers/eventHandler");
 
 client.slashCommands = new Collection();
 
-// 🔹 Inicializar el reproductor y asignarlo a `client.player`
-client.player = new Player(client, {
-    ytdlOptions: {
-        quality: "highestaudio",
-        highWaterMark: 1 << 25
-    }
-});
 
-// Manejo de errores del reproductor
-client.player.events.on("error", (queue, error) => {
-    console.error(`Error en la cola de música: ${error.message}`);
-});
 
 // Iniciar sesión del bot
 client.login(process.env.TOKEN)
