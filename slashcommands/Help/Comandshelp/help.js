@@ -2,7 +2,7 @@ const { EmbedBuilder } = require("discord.js");
 const { filterCommandsByPermission } = require("../../../handlers/slashHandler");
 
 module.exports = {
-    name: "comandos",
+    name: "help",
     description: "Muestra los comandos disponibles para ti",
     
     async execute(client, interaction, args) {
